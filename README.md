@@ -26,5 +26,5 @@ User-Stories by User-Tasks:
 --est completion time 10 days, priority #2
 
 7. Admin wants to know which filters are selected most often to better understand how users are interacting with the app 
-est completion time 10 days, priority #2
+--est completion time 10 days, priority #2
 
