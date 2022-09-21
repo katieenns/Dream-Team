@@ -1,4 +1,4 @@
-# TeamD READ ME
+# READ ME
 
 This is a project by Katie Enns, Hunter Sayre, Javier Aguilar, and Pankaj Chaudhari
 
