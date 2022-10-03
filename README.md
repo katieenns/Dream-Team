@@ -1,3 +1,46 @@
+# How to run the application
+
+## Environment to run the application
+
+- Python 3.10.7
+- Pip 22.2.2
+
+## Steps to run the application
+
+1. Clone the folders and the files on GitHub.
+
+    `git clone https://github.com/katieenns/Dream-Team.git`
+
+2. Create Virtual Environment
+
+    Install virtual environment:
+
+    `pip install virtualenv`
+
+    Create virtual environment named "webappenv":
+
+    `python -m virtualenv webappenv`
+    
+4. Activate the virtual environment:
+
+    For Windows OS use command below
+    
+     `webappenv\Scripts\activate`
+
+    For Mac and other Linux OS use command below.
+    
+    `source webappenv/bin/activate`
+
+3. Install the packages you need
+
+    `(webappenv) pip install -r requirements.txt`
+
+4. Run the server on your machine
+
+    `(webappenv)$ python main.py`
+
+    The website can be accessed at `http://127.0.0.1:5000`
+
 # YELP's Search API Explorer
 
 ## PART A
