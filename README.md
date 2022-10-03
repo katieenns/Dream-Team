@@ -1,4 +1,4 @@
-# YELP Search API Explorer
+# YELP's Search API Explorer
 
 ## PART A
 ### Concept
@@ -16,35 +16,35 @@ Relevant stakeholders include Local Businesses, Claremont College Students, and 
 ### User Stories (estimate of completion times) and Development Priorities
 1. User wants to be able to see a website/application which has map on home page, and it's zoom to Claremont city by default and have ability to search required location. 
 
---Est completion time 5 days, priority #1
+    - Est completion time 5 days, priority #1
 
 2. User wants the website/application to web responsive. It must be rendered properly on desktop and mobile devices properly.
 
---Est completion time 3 days, priority #1
+    - Est completion time 3 days, priority #1
 
 3. User wants to be able to navigate/move around the map (zoom in and out) and see different types of maps and change settings of website/application to see it in different themes. User shall not be able zoom out beyond USA country.
 
---Est completion time 7 days, priority #1
+    - Est completion time 7 days, priority #1
 
 4. User wants to able to select specific category and related multiple subcategories. User wants to able to specify the radius within which specific categories can be located. Application must use YELP search API in backend to query the information related to categories of interest.
 
---Est completion time 10 days, priority #1
+    - Est completion time 10 days, priority #1
 
 5. User want to able to browse through all search results on map and shall be able to retrieve more information by clicking on specific search result on map.
 
---Est completion time 7 days, priority #2
+    - Est completion time 7 days, priority #2
 
 6. User wants to additional information like rating, distance etc. for all search results from specified search location.
 
---Est completion time 3 days, priority #2
+    - Est completion time 3 days, priority #2
 
 7. Admin user wants to be able to login into website to view admin dashboard.
 
---Est completion time 10 days, priority #3
+    - Est completion time 10 days, priority #3
 
 8. Admin user wants to know which filters are selected most often to better understand how users are interacting with the app.
 
---Est completion time 7 days, priority #3
+    - Est completion time 7 days, priority #3
 
 ## PART B
 
@@ -58,7 +58,7 @@ Relevant stakeholders include Local Businesses, Claremont College Students, and 
    * Explore the various HTML frameworks for web responsive design and implemented it in website/application. (Pankaj) (MILESTONE #1 - ITERATION #2)
 
 3. User wants to be able to navigate/move around the map (zoom in and out) and see different types of maps and change settings of website/application to see it in different themes. User shall not be able zoom out beyond USA country.
-   * Explore the various types of basemap options available and create widget for user to pick appropriate basemap. (Javier) (MILESTONE #1 - ITERATION #2)
+   * Explore the various types of basemap options available and create widget for user to pick appropriate basemap. (Javier) (MILESTONE #1 - ITERATION #1)
    * Give an option for user to change website/application settings. (Javier) (MILESTONE #1 - ITERATION #2)
    * Restrict user from zooming out beyond US country on map. Need to implement appropriate map scale levels. (Javier) (MILESTONE #2)
 
@@ -92,16 +92,26 @@ Relevant stakeholders include Local Businesses, Claremont College Students, and 
 
 ### 2 Iterations for Milestone 1 (4 weeks)
 - Iteration 1 (2 weeks):
-  - Develop Database Model
-  - Create Django Project and Venv
-  - Create Database
+  - Create a Skelton web application with default basemap.
+  - Explore the various types of basemap options available and create widget for user to pick appropriate basemap.
+  - Explore the YELP search API and figure out best way to integrate it in web application.
 
-- Iteration 2 (2 weeks):
-  - Create Template Site
-  - Create Views
-  - Create Admin Users
+- Iteration 2 (4 weeks):
+  - Add search widget in web application so that user can search area if interest.
+  - Explore the various HTML frameworks for web responsive design and implemented it in website/application.
+  - Give an option for user to change website/application settings.
+  - Design the widget in web application with appropriate options for user to select categories.
+  - Integrate the YELP’s search API with above widget to query results based on user selection.
+  - Display all search results on map and zoom the map to search results.
+  - Explore the flask framework to create admin interfaces.
+  - Create a database model and design the SQLite database to store website/application transactions/hits information.
 
 ### Velocity
+
+- Timeline: 6 weeks to milestone 1, 5 weeks to milestone 2
+- Starting velocity: XX.XX%
+   - Total: 8 hours per week
+   - Current: XX hours per week
 
 ### Burn Down Chart
 
