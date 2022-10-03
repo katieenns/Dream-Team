@@ -17,7 +17,7 @@
 
     `pip install virtualenv`
 
-    Create virtual environment named "webappenv":
+    Create virtual environment named "webappenv" (Note : In command prompt make sure you are accessing same root folder where you have cloned source code in step 1)
 
     `python -m virtualenv webappenv`
     
@@ -34,6 +34,10 @@
 3. Install the packages you need
 
     `(webappenv) pip install -r requirements.txt`
+    
+    If "requirements.txt" file does not exists then it can be created using command below.
+    
+     `(webappenv) pip freeze > requirements.txt`
 
 4. Run the server on your machine
 
