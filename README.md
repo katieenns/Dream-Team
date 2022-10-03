@@ -89,6 +89,10 @@ Relevant stakeholders include Local Businesses, Claremont College Students, and 
 
     - Est completion time 2 weeks, priority #3
 
+### Project Dashboard
+
+-  https://github.com/users/katieenns/projects/1 
+
 ## PART B
 
 ### User Stories broken into Tasks with Team Member Allocated and targeted milestones with iterations
