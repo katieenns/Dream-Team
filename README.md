@@ -1,4 +1,4 @@
-# READ ME
+# YELP API Explorer
 
 This is a project by Katie Enns, Hunter Sayre, Javier Aguilar, and Pankaj Chaudhari
 
