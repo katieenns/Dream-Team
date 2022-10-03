@@ -16,35 +16,35 @@ Relevant stakeholders include Local Businesses, Claremont College Students, and 
 ### User Stories (estimate of completion times) and Development Priorities
 1. User wants to be able to see a website/application which has map on home page, and it's zoom to Claremont city by default and have ability to search required location. 
 
-    - Est completion time 5 days, priority #1
+    - Est completion time 1 week, priority #1
 
 2. User wants the website/application to web responsive. It must be rendered properly on desktop and mobile devices properly.
 
-    - Est completion time 3 days, priority #1
+    - Est completion time 2 weeks, priority #1
 
 3. User wants to be able to navigate/move around the map (zoom in and out) and see different types of maps and change settings of website/application to see it in different themes. User shall not be able zoom out beyond USA country.
 
-    - Est completion time 7 days, priority #1
+    - Est completion time 2 weeks, priority #1
 
 4. User wants to able to select specific category and related multiple subcategories. User wants to able to specify the radius within which specific categories can be located. Application must use YELP search API in backend to query the information related to categories of interest.
 
-    - Est completion time 10 days, priority #1
+    - Est completion time 2 weeks, priority #1
 
 5. User want to able to browse through all search results on map and shall be able to retrieve more information by clicking on specific search result on map.
 
-    - Est completion time 7 days, priority #2
+    - Est completion time 1 week, priority #2
 
 6. User wants to additional information like rating, distance etc. for all search results from specified search location.
 
-    - Est completion time 3 days, priority #2
+    - Est completion time 1 week, priority #2
 
 7. Admin user wants to be able to login into website to view admin dashboard.
 
-    - Est completion time 10 days, priority #3
+    - Est completion time 2 weeks, priority #3
 
 8. Admin user wants to know which filters are selected most often to better understand how users are interacting with the app.
 
-    - Est completion time 7 days, priority #3
+    - Est completion time 2 weeks, priority #3
 
 ## PART B
 
@@ -109,9 +109,9 @@ Relevant stakeholders include Local Businesses, Claremont College Students, and 
 ### Velocity
 
 - Timeline: 6 weeks to milestone 1, 5 weeks to milestone 2
-- Starting velocity: XX.XX%
+- Starting velocity: 75%
    - Total: 8 hours per week
-   - Current: XX hours per week
+   - Current: 6 hours per week
 
 ### Burn Down Chart
 
