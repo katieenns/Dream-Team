@@ -7,11 +7,15 @@
 
 ## Steps to run the application
 
-1. Clone the folders and the files on GitHub.
+1. Clone the entire project source code from github by running command below in command prompt. Make sure `git` is installed on your local machine.
 
     `git clone https://github.com/katieenns/Dream-Team.git`
+    
+2. In command prompt, access the the directory "Dream-Team"
 
-2. Create Virtual Environment
+   `cd Dream-Team`
+
+3. Create Virtual Environment
 
     Install virtual environment:
 
@@ -21,7 +25,7 @@
 
     `python -m virtualenv webappenv`
     
-3. Activate the virtual environment:
+4. Activate the virtual environment:
 
     For Windows OS use command below
     
@@ -31,14 +35,9 @@
     
     `source webappenv/bin/activate`
     
-4. Make sure the directory is correct. It should be Dream-Team. If you are not in the correct directory, use the command below
-
-    `cd Dream-Team`
-    
-    
 5. Install the packages you need from requirements.txt. To install, use the commamd below.
 
-    `(webappenv) pip install -r requirements.txt`
+    `(webappenv)$ pip install -r requirements.txt`
     
 
 6. Run the server on your machine
