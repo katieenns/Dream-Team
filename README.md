@@ -148,7 +148,7 @@ Relevant stakeholders include Local Businesses, Claremont College Students, and 
   - Explore the various types of basemap options available and create widget for user to pick appropriate basemap.
   - Explore the YELP search API and figure out best way to integrate it in web application.
 
-- Iteration 2 (4 weeks):
+- Iteration 2 (6 weeks):
   - Add search widget in web application so that user can search area if interest.
   - Explore the various HTML frameworks for web responsive design and implemented it in website/application.
   - Give an option for user to change website/application settings.
