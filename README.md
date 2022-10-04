@@ -161,9 +161,9 @@ Relevant stakeholders include Local Businesses, Claremont College Students, and 
 ### Velocity
 
 - Timeline: 6 weeks to milestone 1, 5 weeks to milestone 2
-- Starting velocity: 75%
+- Starting velocity: 95%
    - Total: 8 hours per week
-   - Current: 6 hours per week
+   - Current: 7.6 hours per week
 
 ### Burn Down Chart
 https://github.com/katieenns/Dream-Team/blob/main/Burn%20Chart.png
