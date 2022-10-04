@@ -33,7 +33,7 @@
     
 4. Make sure the directory is correct. It should be Dream-Team. If you are not in the correct directory, use the command below
 
-    `cd Dream-Team
+    `cd Dream-Team`
     
     
 5. Install the packages you need from requirements.txt. To install, use the commamd below.
