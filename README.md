@@ -166,4 +166,5 @@ Relevant stakeholders include Local Businesses, Claremont College Students, and 
 
 ### Burn Down Chart
 
-### Evidences for periodic stand up meetings
+### Evidences for periodic stand up meetings:
+https://github.com/katieenns/Dream-Team/blob/main/weekly_meetings.docx
