@@ -166,6 +166,7 @@ Relevant stakeholders include Local Businesses, Claremont College Students, and 
    - Current: 6 hours per week
 
 ### Burn Down Chart
+https://github.com/katieenns/Dream-Team/blob/main/Burn%20Chart.png
 
 ### Evidences for periodic stand up meetings:
 https://github.com/katieenns/Dream-Team/blob/main/weekly_meetings.docx
