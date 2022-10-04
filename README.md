@@ -76,7 +76,7 @@ Relevant stakeholders include Local Businesses, Claremont College Students, and 
 
 4. User wants to able to select specific category and related multiple subcategories. User wants to able to specify the radius within which specific categories can be located. Application must use YELP search API in backend to query the information related to categories of interest.
 
-    - Est completion time 2 weeks, priority #1
+    - Est completion time 3 weeks, priority #1
 
 5. User want to able to browse through all search results on map and shall be able to retrieve more information by clicking on specific search result on map.
 
