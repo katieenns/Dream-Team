@@ -1,20 +1,10 @@
-from yelp.client import Client
 import flask
 import requests
 
-MY_API_KEY = "Gx6cNUQtLg8xrSG2EUkvKVA_d_wRe63rtQjmMbQf7iOE" \
-             "7J4rsSLGW9iZeuOz7joNy_pPTt8mTvHhXg_Xn6ZB4KCocIm-0SuPf" \
-             "voEIko4eLbKQl4hVnYTF9ANvPktY3Yx"
-#client = Client(MY_API_KEY)
-
-# Same keys for each dict in the responses list
-outside_keylist = ["businesses", "total", "region"]
-# same keys for all bus dicts as well
-inside_keylist = ['id', 'alias', 'name', 'image_url', 'is_closed', 'url', 'review_count', 'categories',
-                  'rating', 'coordinates', 'transactions', 'price', 'location', 'phone', 'display_phone',
-                  'distance']
-
 def get_info(categories):
+    MY_API_KEY = "Gx6cNUQtLg8xrSG2EUkvKVA_d_wRe63rtQjmMbQf7iOE" \
+                 "7J4rsSLGW9iZeuOz7joNy_pPTt8mTvHhXg_Xn6ZB4KCocIm-0SuPf" \
+                 "voEIko4eLbKQl4hVnYTF9ANvPktY3Yx"
     url = 'https://api.yelp.com/v3/businesses/search'
     headers = {'Authorization': f"Bearer {MY_API_KEY}"}
     # List to hold what is returned from requests call
@@ -34,6 +24,12 @@ def create_lists(cat_list, business_dict, category):
         cat_list.append((business_dict['name'], 'none'))
 
 def get_lists(response):
+    # Same keys for each dict in the responses list
+    outside_keylist = ["businesses", "total", "region"]
+    # same keys for all bus dicts as well
+    inside_keylist = ['id', 'alias', 'name', 'image_url', 'is_closed', 'url', 'review_count', 'categories',
+                      'rating', 'coordinates', 'transactions', 'price', 'location', 'phone', 'display_phone',
+                      'distance']
     # Create lists with info for each place
     ratings = []
     price = []
