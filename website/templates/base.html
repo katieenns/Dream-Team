@@ -44,6 +44,10 @@
       <ul class="dropdown-menu">
         <li class="active"><a class="hidden-md hidden-lg" href="#2dTab" aria-controls="2Dtab" role="tab"
             data-toggle="tab"> Map</a></li>
+        <li><a role="button" data-target="#panelCategories" aria-haspopup="true"><span
+                    class="glyphicon glyphicon-th-large"></span> Categories</a></li>
+        <li><a role="button" data-target="#panelZipCode" aria-haspopup="true"><span
+                    class="glyphicon glyphicon-th-large"></span> Zip Code</a></li>
         <li><a role="button" data-target="#panelBasemaps" aria-haspopup="true"><span class="glyphicon glyphicon-th-large"></span> Basemaps</a></li>
         <li><a role="button" data-target="#panelSettings" aria-haspopup="true"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
         <li><a role="button" id="calciteToggleNavbar" aria-haspopup="true"><span class="glyphicon glyphicon-fullscreen"></span> Full Map</a></li>
@@ -83,6 +87,51 @@
   <!-- Panels -->
 
   <div class="calcite-panels calcite-panels-right calcite-text-light calcite-bg-dark panel-group">
+    <!-- Panel Categories -->
+    <div id="panelCategories" class="panel panel-map collapse">
+        <div id="headingCategories" class="panel-heading">
+            <div class="panel-title">
+                <a class="panel-toggle" role="button" data-toggle="collapse" href="#collapseCategories"
+                   aria-expanded="false" aria-controls="collapseCategories"><span class="glyphicon glyphicon-th-large"
+                                                                                  aria-hidden="true"></span><span
+                        class="panel-label">Categories</span></a>
+                <a class="panel-close" role="button" data-toggle="collapse" data-target="#panelCategories"><span
+                        class="yelp-categories-search" aria-hidden="true"></span></a>
+            </div>
+        </div>
+
+        <div id="collapseCategories" class="panel-collapse collapse" role="tabpanel"
+             aria-labelledby="headingCategories">
+            <div class="panel-body">
+                <div class="form-horizontal">
+                    <!-- Type -->
+                    <form method="POST">
+                        <select id="categoriesCategory" name="category" method="POST" multiple>
+                            <option value="food">Food</option>
+                            <option value="arts">Arts and Entertainment</option>
+                            <option value="beautysvc">Beauty and Spas</option>
+                            <option value="health">Health and Medical</option>
+                            <option value="bicycles">Bicycles</option>
+                            <input type="submit" value="Submit">
+                        </select>
+                    </form>
+
+<!--make radius its own category-->
+                    <!-- Radius -->
+<!--                    <div class="form-group">-->
+<!--                        <label for="categoriesRadius" class="col-xs-3 control-label">Radius</label>-->
+<!--                        <div class="col-xs-9">-->
+<!--                            <select id="categoriesRadius" name="radius">-->
+<!--                                <option value="5">5 miles</option>-->
+<!--                                <option value="10">10 miles</option>-->
+<!--                                <option value="15">15 miles</option>-->
+<!--                                <option value="20">20 miles</option>-->
+<!--                            </select>-->
+<!--                        </div>-->
+<!--                    </div>-->
+            </div>
+        </div>
+    </div>
 
     <!-- Basemaps Panel -->
 
