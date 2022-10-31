@@ -86,7 +86,7 @@ Relevant stakeholders include Local Businesses, Claremont College Students, and 
 
     - Est completion time 1 week, priority #2
 
-7. Admin user wants to be able to login into admin dashboard. In this dashbaord admin user can configure the categories and subcategoties information displayed in "YELpSearch" widget.
+7. Admin user wants to be able to login into admin dashboard. In this dashbaord admin user can configure the categories and subcategoties information displayed in "YELPSearch" widget.
 
     - Est completion time 2 weeks, priority #3
 
@@ -127,7 +127,7 @@ Relevant stakeholders include Local Businesses, Claremont College Students, and 
    * Enhance the display of search result to include other appropriate information like distance, rating etc. (Katie) (MILESTONE #2)
    * Translate similar information into info pop-up windows. (Pankaj) (MILESTONE #2)
   
-7. Admin user wants to be able to login into admin dashboard. In this dashbaord admin user can configure the categories and subcategoties information displayed in "YELpSearch" widget.
+7. Admin user wants to be able to login into admin dashboard. In this dashbaord admin user can configure the categories and subcategoties information displayed in "YELPSearch" widget.
    * Explore the flask framework to create admin interfaces. (Hunter) (MILESTONE #1 - ITERATION #2)
    * Create a database model and design the SQLite database to store YELP categories and website/application transactions/hits information. (Hunter) (MILESTONE #1 - ITERATION #2)
    * Create the interfaces for login and sign-up and integrate this with SQLite database. (Hunter) (MILESTONE #2) 
