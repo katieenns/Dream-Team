@@ -86,11 +86,11 @@ Relevant stakeholders include Local Businesses, Claremont College Students, and 
 
     - Est completion time 1 week, priority #2
 
-7. Admin user wants to be able to login into website to view admin dashboard.
+7. Admin user wants to be able to login into admin dashboard. In this dashbaord admin user can configure the categories and subcategoties information displayed in "YELpSearch" widget.
 
     - Est completion time 2 weeks, priority #3
 
-8. Admin user wants to know which filters are selected most often to better understand how users are interacting with the app.
+8. Admin user shall be able to search most freqntly entered categoris and subcategories by user to better understand how users are interacting with the app.p.
 
     - Est completion time 2 weeks, priority #3
 
@@ -104,7 +104,7 @@ Relevant stakeholders include Local Businesses, Claremont College Students, and 
 
 1. User wants to be able to see a website/application which has map on home page, and it's zoom to Claremont city by default and have ability to search required location. 
    * Create a Skelton web application with default basemap. (Pankaj) (MILESTONE #1 - ITERATION #1)
-   * Add search widget in web application so that user can search area if interest.  (Pankaj) (MILESTONE #1 - ITERATION #2)
+   * Add search option in web application so that user can search area if interest.  (Pankaj) (MILESTONE #1 - ITERATION #2)
 
 2. User wants the website/application to web responsive. It must be rendered properly on desktop and mobile devices properly.
    * Explore the various HTML frameworks for web responsive design and implemented it in website/application. (Pankaj) (MILESTONE #1 - ITERATION #2)
@@ -114,7 +114,7 @@ Relevant stakeholders include Local Businesses, Claremont College Students, and 
    * Give an option for user to change website/application settings. (Javier) (MILESTONE #1 - ITERATION #2)
    * Restrict user from zooming out beyond US country on map. Need to implement appropriate map scale levels. (Javier) (MILESTONE #2)
 
-4. User wants to able to select specific category and related multiple subcategories. User wants to able to specify the radius within which specific categories can be located. Application must use YELP search API in backend to query the information related to categories of interest.
+4. User wants to able to select specific category and related multiple subcategories. User wants to able to specify suggested radius within which specific categories can be located. Application must use YELP search API in backend to query the information related to categories of interest.
    * Explore the YELP search API and figure out best way to integrate it in web application. (Katie) (MILESTONE #1 - ITERATION #1)
    * Design the widget in web application with appropriate options for user to select categories. (Katie) (MILESTONE #1 - ITERATION #2)
    * Integrate the YELP’s search API with above widget to query results based on user selection. (Katie) (MILESTONE #1 - ITERATION #2) 
@@ -124,15 +124,15 @@ Relevant stakeholders include Local Businesses, Claremont College Students, and 
    * Add an ability for use to identify the specific search result information in different pop-up window. (Pankaj) (MILESTONE #2)
    
 6. User wants to additional information like rating, distance etc. for all search results from specified search location.
-   * Enhance the display of search result to include other appropriate information like distance, reviews etc. (Katie) (MILESTONE #2)
+   * Enhance the display of search result to include other appropriate information like distance, rating etc. (Katie) (MILESTONE #2)
    * Translate similar information into info pop-up windows. (Pankaj) (MILESTONE #2)
   
-7. Admin user wants to be able to login into website to view admin dashboard.
+7. Admin user wants to be able to login into admin dashboard. In this dashbaord admin user can configure the categories and subcategoties information displayed in "YELpSearch" widget.
    * Explore the flask framework to create admin interfaces. (Hunter) (MILESTONE #1 - ITERATION #2)
-   * Create a database model and design the SQLite database to store website/application transactions/hits information. (Hunter) (MILESTONE #1 - ITERATION #2)
+   * Create a database model and design the SQLite database to store YELP categories and website/application transactions/hits information. (Hunter) (MILESTONE #1 - ITERATION #2)
    * Create the interfaces for login and sign-up and integrate this with SQLite database. (Hunter) (MILESTONE #2) 
 
-8. Admin user wants to know which filters are selected most often to better understand how users are interacting with the app. 
+8. Admin user shall be able to search most freqntly entered categoris and subcategories by user to better understand how users are interacting with the app. 
    * Create the interfaces for admin to retrieve information like which is most search category, which are the most searched subcategories. Display results in tabular format. (Hunter) (MILESTONE #2)
 
 
