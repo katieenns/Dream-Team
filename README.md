@@ -170,3 +170,44 @@ https://github.com/katieenns/Dream-Team/blob/main/Burn%20Chart.png
 
 ### Evidences for periodic stand up meetings:
 https://github.com/katieenns/Dream-Team/blob/main/weekly_meetings.docx
+
+## PART C
+
+### Mileston 1.0 presentation
+https://github.com/katieenns/Dream-Team/blob/main/Burn%20Chart.png
+
+### Mileston 1.0 working code
+Refer to "How to run the application" section of this readme to run the application. Working is udated as of data in this repository,
+
+### Testing Strategies
+
+| Storypoint | Description | Testing Strategy |
+| ------------- | ------------- | ------------- |
+| 1 |  User wants to be able to see a website/application which has map on home page, and it's zoom to Claremont city by default and have ability to search required location | Unit testing for basemap service, Unit testing for Geocoding Service and Manual testing for UI (Need to figure out a way to do automated testing) |
+| 2 | User wants the website/application to web responsive. It must be rendered properly on desktop and mobile devices properly | Manual testing for UI (Need to figure out a way to do automated testing)  |
+| 3 | User wants to be able to navigate/move around the map (zoom in and out) and see different types of maps and change settings of website/application to see it in different themes | Manual testing for UI (Need to figure out a way to do automated testing) |
+| 4 | User wants to able to select specific category and related multiple subcategories. User wants to able to specify suggested radius within which specific categories can be located. Application must use YELP search API in backend to query the information related to categories of interest | Unit testing for YELP API, Unit testing for retrieveing YELP category information, Manual testing for UI (Need to figure out a way to do automated testing) |
+| 5 | User want to able to browse through all search results on map and shall be able to retrieve more information by clicking on specific search result on map | Unit testing to test identify feature. Manual testing for UI (Need to figure out a way to do automated testing) |
+| 6 | User wants to additional information like rating, distance etc. for all search results from specified search location | Unit testing to check for additiona information, Manual testing for UI (Need to figure out a way to do automated testing) |
+
+### Milestone 2.0 
+
+Below are the pending taks for MileStone 2.0
+
+1. Admin user wants to be able to login into admin dashboard. In this dashbaord admin user can configure the categories and subcategoties information displayed in "YELPSearch" widget.
+   * Explore the flask framework to create admin interfaces.
+   * Create a database model and design the SQLite database to store YELP categories and website/application transactions/hits information.
+   * Create the interfaces for login and sign-up and integrate this with SQLite database.
+
+2. Admin user shall be able to search most freqntly entered categoris and subcategories by user to better understand how users are interacting with the app. 
+   * Create the interfaces for admin to retrieve information like which is most search category, which are the most searched subcategories. Display results in tabular format.
+
+### Velocity
+
+- Timeline: 6 weeks to milestone 1, 5 weeks to milestone 2
+- Starting velocity: 95%
+   - Total: 8 hours per week
+   - Current: 7.6 hours per week
+
+### Burn Down Chart
+https://github.com/katieenns/Dream-Team/blob/main/Burn%20Chart.png
