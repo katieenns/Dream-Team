@@ -42,8 +42,9 @@
         </div>
       </a>
       <ul class="dropdown-menu">
-        <li class="active"><a class="hidden-md hidden-lg" href="#2dTab" aria-controls="2Dtab" role="tab"
-            data-toggle="tab"> Map</a></li>
+        <li><a class="hidden-md hidden-lg" href="#2dTab" aria-controls="2Dtab" role="tab"
+            data-toggle="tab"> Home</a></li>
+        <li><a class="hidden-md hidden-lg" role="button" data-target="#yelpSearch" aria-haspopup="true"><span class="glyphicon glyphicon-bookmark"></span> YELP Search</a></li>
         <li><a role="button" data-target="#panelBasemaps" aria-haspopup="true"><span class="glyphicon glyphicon-th-large"></span> Basemaps</a></li>
         <li><a role="button" data-target="#panelSettings" aria-haspopup="true"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
         <li><a role="button" id="calciteToggleNavbar" aria-haspopup="true"><span class="glyphicon glyphicon-fullscreen"></span> Full Map</a></li>
@@ -57,12 +58,19 @@
     </div>
     <!-- Nav -->
     <ul class="nav navbar-nav calcite-nav">
-      <li class="active"><a id="mapNav" class="hidden-xs hidden-sm" href="#2dTab" aria-controls="2Dtab"
+      <li><a id="mapNav" class="hidden-xs hidden-sm" href="#2dTab" aria-controls="2Dtab"
           aria-expanded="true" role="tab" data-toggle="tab" data-tooltip="tip" title="2D View"
-          data-placement="bottom">Map</a></li>
+          data-placement="bottom">Home</a>
+      </li>
+      <li>
+        <a class="hidden-xs hidden-sm" role="button" data-target="#yelpSearch" aria-haspopup="true" data-toggle="collapse"
+           data-tooltip="tip" title="YELP Search" data-placement="bottom">
+          YELP Search
+        </a>
+      </li>
       <li>
         <div class="calcite-navbar-search calcite-search-expander">
-          <div id="searchWidgetDiv"></div>
+            <div id="searchWidgetDiv"></div>
         </div>
       </li>
     </ul>
@@ -82,7 +90,7 @@
 
   <!-- Panels -->
 
-  <div class="calcite-panels calcite-panels-right calcite-text-light calcite-bg-dark panel-group">
+  <div class="calcite-panels calcite-panels-right calcite-text-light calcite-bg-custom calcite-bgcolor-dark-blue panel-group">
 
     <!-- Basemaps Panel -->
 
@@ -97,8 +105,8 @@
       <div id="collapseBasemaps" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingBasemaps">
         <div class="panel-body">
           <select id="selectBasemapPanel" class="form-control">
-            <option value="streets" data-vector="streets-vector">Streets</option>
-            <option value="satellite" data-vector="satellite" selected="">Satellite</option>
+            <option value="streets" data-vector="streets-vector" selected="">Streets</option>
+            <option value="satellite" data-vector="satellite">Satellite</option>
             <option value="hybrid" data-vector="hybrid">Hybrid</option>
             <option value="national-geographic" data-vector="national-geographic">National Geographic</option>
             <option value="topo" data-vector="topo-vector">Topographic</option>
@@ -145,7 +153,7 @@
               <div class="col-xs-9">
                 <select id="settingsColor" class="form-control">
                   <option value="" data-theme="calcite-theme-light">Calcite Default</option>
-                  <option value="calcite-bgcolor-dark-blue" data-textcolor="calcite-text-light" data-bgcolor="calcite-bg-custom">Calcite Dark Blue</option>
+                  <option value="calcite-bgcolor-dark-blue" data-textcolor="calcite-text-light" data-bgcolor="calcite-bg-custom" selected>Calcite Dark Blue</option>
                   <option value="calcite-bgcolor-dark-green" data-textcolor="calcite-text-light" data-bgcolor="calcite-bg-custom">Calcite Dark Green</option>
                   <option value="calcite-bgcolor-dark-brown" data-textcolor="calcite-text-light" data-bgcolor="calcite-bg-custom">Calcite Dark Brown </option>
                   <option value="calcite-bgcolor-dark-red" data-textcolor="calcite-text-light" data-bgcolor="calcite-bg-custom">Calcite Dark Red</option>
@@ -185,8 +193,113 @@
         </div>
       </div>
     </div>
+
+    <!-- Yelp Search Settings -->
+
+    <div id="yelpSearch" class="panel panel-map collapse">
+      <div id="headingYELP" class="panel-heading">
+        <div class="panel-title">
+          <a class="panel-toggle" role="button" data-toggle="collapse" href="#collapseYELP"
+            data-parent="#panelAccordion" aria-expanded="true" aria-controls="collapseYELP"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span><span class="panel-label">YELP Search</span></a>
+          <a class="panel-close" role="button" data-toggle="collapse" data-target="#yelpSearch"><span class="esri-icon esri-icon-close" aria-hidden="true"></span></a>
+        </div>
+      </div>
+      <div id="collapseYELP" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingYELP">
+        <div class="panel-body">
+          <!-- <form action="/yelpsearch" method="POST"> -->
+            <div class="form-horizontal">
+
+              <!-- Hidden Location Latitude -->
+              <div class="form-group">
+                <div class="col-xs-7">
+                  <input type="hidden" id="yelpLocationLat" name="yelpLocationLat" class="form-control" value="">
+                </div>
+              </div>
+
+              <!-- Hidden Location Longitude -->
+              <div class="form-group">
+                <div class="col-xs-7">
+                  <input type="hidden" id="yelpLocationLong" name="yelpLocationLong" class="form-control" value="">
+                </div>
+              </div>
+
+              <!-- Categories -->
+              <div class="form-group">
+                <label for="yelpCategory" class="col-xs-5 control-label">Category</label>
+                <div class="col-xs-7">
+                  <select id="yelpCategory" name="yelpCategory" class="form-control" title="Select Category" >
+                    {% set index = 0 %} 
+                    {% for key, pair in yelpcategories.items() %}
+                    {{ index == index + 1 }}
+                    {% if index == 1 %}
+                    <option value="{{key}}" data-textcolor="calcite-text-dark" data-bgcolor="calcite-bg-dark" selected>{{pair}}</option>
+                    {% else %}
+                    <option value="{{key}}" data-textcolor="calcite-text-dark" data-bgcolor="calcite-bg-dark">{{pair}}</option>
+                    {% endif %}
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+
+              <!-- Subcategories -->
+              <div class="form-group">
+                <label for="yelpSubCategory" class="col-xs-5 control-label">Sub Category</label>
+                <div class="col-xs-7">
+                  <select multiple id="yelpSubCategory" name="yelpSubCategory" class="form-select" style="width: 100%;" title="Select Sub Category" >
+                    
+                  </select>
+                </div>
+              </div>
+
+              <!-- Radius -->
+              <div class="form-group">
+                <label for="yelpRadius" class="col-xs-5 control-label">Suggested Radius</label>
+                <div class="col-xs-7">
+                  <select id="yelpRadius" name="yelpRadius" class="form-control">
+                    <option value="5" data-textcolor="calcite-text-light" data-bgcolor="calcite-bg-dark">5</option>
+                    <option value="10" data-textcolor="calcite-text-dark" data-bgcolor="calcite-bg-light" selected>10</option>
+                    <option value="15" data-textcolor="calcite-text-dark" data-bgcolor="calcite-bg-light">15</option>
+                    <option value="20" data-textcolor="calcite-text-dark" data-bgcolor="calcite-bg-light">20</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Record Limit -->
+              <div class="form-group">
+                <label for="yelpRecordLimit" class="col-xs-5 control-label">Record Limit</label>
+                <div class="col-xs-7">
+                  <select id="yelpRecordLimit" name="yelpRecordLimit" class="form-control">
+                    <option value="5" data-textcolor="calcite-text-light" data-bgcolor="calcite-bg-dark">5</option>
+                    <option value="10" data-textcolor="calcite-text-dark" data-bgcolor="calcite-bg-light">10</option>
+                    <option value="15" data-textcolor="calcite-text-dark" data-bgcolor="calcite-bg-light">15</option>
+                    <option value="20" data-textcolor="calcite-text-dark" data-bgcolor="calcite-bg-light">20</option>
+                    <option value="25" data-textcolor="calcite-text-light" data-bgcolor="calcite-bg-dark">25</option>
+                    <option value="30" data-textcolor="calcite-text-dark" data-bgcolor="calcite-bg-light" selected>30</option>
+                    <option value="35" data-textcolor="calcite-text-light" data-bgcolor="calcite-bg-dark">35</option>
+                    <option value="40" data-textcolor="calcite-text-light" data-bgcolor="calcite-bg-dark">40</option>
+                    <option value="45" data-textcolor="calcite-text-light" data-bgcolor="calcite-bg-dark">45</option>
+                    <option value="50" data-textcolor="calcite-text-light" data-bgcolor="calcite-bg-dark">50</option>
+                  </select>
+                </div>
+              </div>
+
+              <br />
+              <div class="form-group">
+                <label for="yelpSubmit" class="col-xs-5 control-label"></label>
+                <div class="col-xs-7">
+                  <button id="yelpSubmit" type="button" class="form-control">Query</button>
+                </div>
+            </div>
+            </div>
+          <!-- </form> -->
+        </div>
+      </div>
+    </div>
+
   </div>
   <!-- /.calcite-panels -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 
   <script type="text/javascript">
     var dojoConfig = {
@@ -206,12 +319,17 @@
 
   <script>
     var app;
+    var yelpdata = '{{ yelpdata }}';
 
     require([
       "esri/Map",
       "esri/views/MapView",
+      "esri/layers/GraphicsLayer", 
+      "esri/Graphic",
+      "esri/geometry/Point",
       "esri/widgets/Search",
       "esri/widgets/Popup",
+      "esri/symbols/SimpleMarkerSymbol",
       "esri/core/watchUtils",
       "dojo/query",
       "dojo/on",
@@ -224,7 +342,7 @@
       // Calcite Maps
       "calcite-maps/calcitemaps-v0.2",
       "dojo/domReady!"
-    ], function(Map, MapView, Search, Popup, watchUtils, query,
+    ], function(Map, MapView, GraphicsLayer, Graphic, Point, Search, Popup, SimpleMarkerSymbol, watchUtils, query,
       on) {
 
       /******************************************************************
@@ -288,6 +406,16 @@
         view: app.activeView
       }, "searchWidgetDiv");
 
+      app.searchWidget.on("select-result", function(event){
+        let latitude = document.getElementById('yelpLocationLat');
+        latitude.value = app.searchWidget.selectedResult.feature.geometry.latitude
+        //latitude.value = event.result.feature.geometry.centroid.latitude
+        let longitude = document.getElementById('yelpLocationLong');
+        longitude.value = app.searchWidget.selectedResult.feature.geometry.longitude
+        //longitude.value = event.result.feature.geometry.centroid.longitude
+      });
+
+
       /******************************************************************
        *
        * Synchronize the view, search and popup
@@ -299,7 +427,9 @@
         e) {
         syncTabs(e);
         app.activeView = app.mapView;
+        app.mapView.graphics.removeAll();
         syncSearch();
+        location.href = "/"
       });
 
       // Tabs - sync ui menus
@@ -515,7 +645,168 @@
         }
       }
 
+      var markerSymbol = new SimpleMarkerSymbol({
+        color: [226, 119, 40],
+        outline: { // autocasts as new SimpleLineSymbol()
+          color: [255, 255, 255],
+          width: 2
+        }
+      });
+
+      let layer = new GraphicsLayer()
+
+      // Search - sync search location and popup
+      function yelpSearch() {
+        if(yelpdata) {
+          //const myJSON = JSON.parse(yelpdata);
+          alert(yelpdata)
+          var decoded = decodeURI(yelpdata);
+          alert(decoded)
+          var businesses = JSON.parse('{{ yelpdata | tojson | safe}}');
+          alert(decoded)
+          businesses.forEach((business) => {
+            //alert(business.coordinates.longitude)
+            var point = new Point({
+              longitude: business.coordinates.longitude,
+              latitude: business.coordinates.latitude
+            });
+            let pointgraphic = new Graphic({  // graphic with point geometry
+              geometry: point, // set geometry here
+              symbol: markerSymbol // set symbol here
+            });
+            // Add graphic to graphics collection
+            layer.graphics.add(pointgraphic);
+          });
+           // Add GraphicsLayer to map
+          map.add(layer);
+        
+          app.mapView.then(() =>{
+            app.mapView.goTo(layer.graphics)
+          });
+
+          
+        } else {
+          alert('out')
+        }
+      }
+
+      //yelpSearch();
+
+      let yelplat = document.getElementById('yelpLocationLat');
+      let yelplong = document.getElementById('yelpLocationLong');
+      let subcategory1 = document.getElementById('yelpSubCategory');
+      let yelpradius = document.getElementById('yelpRadius');
+      let yelplimit = document.getElementById('yelpRecordLimit');
+      let yelpsubmit = document.getElementById('yelpSubmit');
+      yelpsubmit.onclick = function(){
+        var selectedsubcats = [];
+        for (var option of subcategory1.options)
+        {
+            if (option.selected) {
+              selectedsubcats.push(option.value);
+            }
+        }
+        if (selectedsubcats.length == 0) {
+          alert('Select atleast 1 subcategory!')
+          return;
+        }
+        map.remove(layer);
+        parameters = yelpradius.value + '$' + yelplimit.value + '$' + yelplat.value + '$' + yelplong.value + '$' + selectedsubcats
+        fetch('/yelpsearch2/' + parameters).then(function(response){
+          response.json().then(function(data){
+            if (data.businesses && data.businesses.length > 0) {
+              data.businesses.forEach((business) => {
+                var point = new Point({
+                  longitude: business.coordinates.longitude,
+                  latitude: business.coordinates.latitude
+                });
+                let pointgraphic = new Graphic({  // graphic with point geometry
+                  geometry: point, // set geometry here
+                  symbol: markerSymbol, // set symbol here
+                  attributes: {
+                    Name: business.name,
+                    Address: business.location.display_address,
+                    Distance: business.distance,
+                    Closed: business.is_closed,
+                    Contact: business.display_phone,
+                    Rating: business.rating,
+                    YELP_URL: business.url,
+                    Image_URL: business.image_url
+                  },
+                  popupTemplate: { // autocasts as new PopupTemplate()
+                    title: "{Name}",
+                    content: [{
+                      type: "fields",
+                      fieldInfos: [{
+                        fieldName: "Name"
+                      }, {
+                        fieldName: "Address"
+                      }, {
+                        fieldName: "Distance"
+                      }, {
+                        fieldName: "Closed"
+                      }, {
+                        fieldName: "Contact"
+                      }, {
+                        fieldName: "Rating"
+                      }, {
+                        fieldName: "YELP_URL"
+                      }, {
+                        fieldName: "Image_URL"
+                      }]
+                    }]
+                  }
+                });
+                // Add graphic to graphics collection
+                layer.graphics.add(pointgraphic);
+              });
+               // Add GraphicsLayer to map
+              map.add(layer);
+            
+              app.mapView.then(() =>{
+                app.mapView.goTo(layer.graphics)
+              });
+            }
+            else {
+              alert('No records found!')
+            }
+          });
+        });
+      }
     });
+  </script>
+
+  <script>
+    let category = document.getElementById('yelpCategory');
+    let subcategory = document.getElementById('yelpSubCategory');
+    category.onchange = function(){
+      value = category.value;
+      fetch('/subcategory/' + value).then(function(response){
+        response.json().then(function(data){
+            let optionHTML = '';
+            for(let opt of data){
+                optionHTML += '<option value ="' + opt.id + '" data-textcolor="calcite-text-light" data-bgcolor="calcite-bg-dark">' + opt.name + '</option>';
+            }
+            subcategory.innerHTML = optionHTML;
+        });
+      });
+    }
+  </script>
+
+  <script>
+    window.onload = function() {
+      let category = document.getElementById('yelpCategory');
+      value = category.value;
+      fetch('/subcategory/' + value).then(function(response){
+        response.json().then(function(data){
+            let optionHTML = '';
+            for(let opt of data){
+                optionHTML += '<option value ="' + opt.id + '" data-textcolor="calcite-text-light" data-bgcolor="calcite-bg-dark">' + opt.name + '</option>';
+            }
+            subcategory.innerHTML = optionHTML;
+        });
+      });
+    };
   </script>
 
 </body>
