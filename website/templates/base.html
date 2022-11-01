@@ -330,6 +330,7 @@
       "esri/widgets/Search",
       "esri/widgets/Popup",
       "esri/symbols/SimpleMarkerSymbol",
+      "esri/symbols/PictureMarkerSymbol",
       "esri/core/watchUtils",
       "dojo/query",
       "dojo/on",
@@ -342,7 +343,7 @@
       // Calcite Maps
       "calcite-maps/calcitemaps-v0.2",
       "dojo/domReady!"
-    ], function(Map, MapView, GraphicsLayer, Graphic, Point, Search, Popup, SimpleMarkerSymbol, watchUtils, query,
+    ], function(Map, MapView, GraphicsLayer, Graphic, Point, Search, Popup, SimpleMarkerSymbol, PictureMarkerSymbol, watchUtils, query,
       on) {
 
       /******************************************************************
@@ -653,6 +654,12 @@
         }
       });
 
+      var pictureMarkerSymbol  = new PictureMarkerSymbol ({
+        url: "./../static/images/pin-30.png",
+        width: "40px",
+        height: "40px"
+      });
+
       let layer = new GraphicsLayer()
 
       // Search - sync search location and popup
@@ -722,11 +729,11 @@
                 });
                 let pointgraphic = new Graphic({  // graphic with point geometry
                   geometry: point, // set geometry here
-                  symbol: markerSymbol, // set symbol here
+                  symbol: pictureMarkerSymbol, // set symbol here
                   attributes: {
                     Name: business.name,
                     Address: business.location.display_address,
-                    Distance: business.distance,
+                    Distance: (business.distance).toFixed(2),
                     Closed: business.is_closed,
                     Contact: business.display_phone,
                     Rating: business.rating,
