@@ -203,4 +203,4 @@ Below are the pending taks for MileStone 2.0
    * Create the interfaces for admin to retrieve information like which is most search category, which are the most searched subcategories. Display results in tabular format.
 
 ### Burn Down Chart
-https://github.com/katieenns/Dream-Team/blob/main/Burn%20Chart.png
+https://github.com/katieenns/Dream-Team/blob/main/Burn%20Chart%2020221101.png
