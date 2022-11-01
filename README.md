@@ -173,10 +173,10 @@ https://github.com/katieenns/Dream-Team/blob/main/weekly_meetings.docx
 
 ## PART C
 
-### Mileston 1.0 presentation
+### Milestone 1.0 presentation
 https://github.com/katieenns/Dream-Team/blob/main/Burn%20Chart.png
 
-### Mileston 1.0 working code
+### Milestone 1.0 working code
 Refer to ["How to run the application"](https://github.com/katieenns/Dream-Team/blob/main/README.md#steps-to-run-the-application) section of this readme to run the application. Working code is udated as of today in this repository,
 
 ### Testing Strategies
