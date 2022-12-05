@@ -1,0 +1,27 @@
+{% extends "adminbase.html" %} 
+{% block title %}Admin Home{% endblock %}
+{% block content%}
+<div class="container"><p><h1 align="center">Most Searched Categories</h1></p>
+    <div class="table-wrapper">
+        <div class="table-title">
+            <h2>Categories</h2>
+        </div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Category Name</th>
+                    <th>Category Count</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in categories %}    
+                <tr>
+                    <td>{{row.category}}</td>
+                    <td>{{row.category_count}}</td>
+                </tr>   
+                {% endfor %}    
+            </tbody>
+        </table>
+    </div>
+</div>     
+{% endblock %}

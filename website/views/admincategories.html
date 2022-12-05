@@ -1,0 +1,165 @@
+{% extends "adminbase.html" %} 
+{% block title %}Admin Home{% endblock %}
+{% block content%}
+<div class="container"><p><h1 align="center">Manage YELP Categories and Subcategories</h1></p>
+    <div class="table-wrapper">
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-8"><h2>Category Details</h2></div>
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New Category</button>
+                </div>
+                <div class='btn btn-info' id="displaymessage" style="display:none;width:100%;margin-top:10px;"></div>
+            </div>
+        </div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Category Name</th>
+                    <th>Category Description</th>
+                    <th>Subcategory Name</th>
+                    <th>Subcategory Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in categories %}    
+                <tr>
+                    <td>{{row.category}}</td>
+                    <td>{{row.description}}</td>
+                    <td>{{row.subcategory}}</td>
+                    <td>{{row.subdescription}}</td>
+                    <td>
+                        <a class="add" title="Add" data-toggle="tooltip" id="{{row.id}}"><i class="fa fa-user-plus"></i></a>
+                        <a class="edit" title="Edit" data-toggle="tooltip" id="{{row.id}}"><i class="fa fa-pencil"></i></a>
+                        <a class="delete" title="Delete" data-toggle="tooltip" id="{{row.id}}"><i class="fa fa-trash-o"></i></a>
+                    </td>
+                </tr>   
+                {% endfor %}    
+            </tbody>
+        </table>
+    </div>
+</div>     
+{% endblock %}
+
+{% block scripts %}
+  <script>
+
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+        var actions = $("table td:last-child").html();
+
+        // Append table with add row form on add new button click
+        $(".add-new").click(function(){
+            $(this).attr("disabled", "disabled");
+            var index = $("table tbody tr:last-child").index();
+            var row = '<tr>' +
+                '<td><input type="text" class="form-control" name="category" id="txtcategory"></td>' +
+                '<td><input type="text" class="form-control" name="description" id="txtdescription"></td>' +
+                '<td><input type="text" class="form-control" name="subcategory" id="txtsubcategory"></td>' +
+                '<td><input type="text" class="form-control" name="subdescription" id="txtsubdescription"></td>' +
+            '<td>' + actions + '</td>' +
+            '</tr>';
+            $("table").append(row);  
+            $("table tbody tr").eq(index + 1).find(".add, .edit, .delete").toggle();
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+       
+        // Add row on add button click
+        $(document).on("click", ".add", function(){
+            $("#displaymessage").hide();
+            var empty = false;
+            var input = $(this).parents("tr").find('input[type="text"]');
+            input.each(function(){
+                if(!$(this).val()){
+                    $(this).addClass("error");
+                    empty = true;
+                } else{
+                    $(this).removeClass("error");
+                }
+            });
+            if(empty){
+                $(this).parents("tr").find(".error").first().focus();
+                return
+            }
+            var txtcategory = $("#txtcategory").val();
+            var txtdescription = $("#txtdescription").val();
+            var txtsubcategory = $("#txtsubcategory").val();
+            var txtsubdescription = $("#txtsubdescription").val();
+            $.post("/add_category", {txtcategory: txtcategory, txtdescription: txtdescription, txtsubcategory: txtsubcategory, txtsubdescription: txtsubdescription}, function(data) {
+                $("#displaymessage").html(data);
+                $("#displaymessage").show();
+                if (data.includes('Error:')) {
+                    input.each(function(){
+                        $(this).addClass("error");
+                    });
+                    return
+                }
+                if(!empty){
+                    input.each(function(){
+                        $(this).parent("td").html($(this).val());
+                    });   
+                    return
+                }
+            });
+            $(this).parents("tr").find(".add, .edit, .delete").toggle();
+            $(".add-new").removeAttr("disabled");
+        });
+
+        // Delete row on delete button click
+        $(document).on("click", ".delete", function(){
+            $("#displaymessage").hide();
+            $(this).parents("tr").remove();
+            $(".add-new").removeAttr("disabled");
+            var id = $(this).attr("id");
+            var string = id;
+            $.post("/delete_category", {string: string}, function(data) {
+                $("#displaymessage").html(data);
+                $("#displaymessage").show();
+                if (!data.includes('Error:')) {
+                }
+            });
+        });
+
+        // update rec row on edit button click
+        $(document).on("click", ".update", function(){
+            $("#displaymessage").hide();
+            var id = $(this).attr("id");
+            var string = id;
+            var txtcategory = $("#txtcategory").val();
+            var txtdescription = $("#txtdescription").val();
+            var txtsubcategory = $("#txtsubcategory").val();
+            var txtsubdescription = $("#txtsubdescription").val();
+            $.post("/update_category", { string: string, txtcategory: txtcategory, txtdescription: txtdescription, txtsubcategory: txtsubcategory, txtsubdescription: txtsubdescription}, function(data) {
+                $("#displaymessage").html(data);
+                $("#displaymessage").show();
+            });
+            $(this).parents("tr").find(".add, .edit").toggle();
+            $(".add-new").attr("disabled", "disabled");
+        });
+        
+        // Edit row on edit button click
+        $(document).on("click", ".edit", function(){ 
+            $("#displaymessage").hide(); 
+
+            $(this).parents("tr").find("td:not(:last-child)").each(function(i){
+                if (i=='0'){
+                    var idname = 'txtcategory';
+                }else if (i=='1'){
+                    var idname = 'txtdescription';
+                }else if (i=='2'){
+                    var idname = 'txtsubcategory';
+                }else if (i=='3'){
+                    var idname = 'txtsubdescription';
+                }else{} 
+                $(this).html('<input type="text" name="updaterec" id="' + idname + '" class="form-control" value="' + $(this).text() + '">');
+            });  
+            $(this).parents("tr").find(".add, .edit").toggle();
+            $("#txtcategory").attr("disabled", "disabled");
+            $("#txtsubcategory").attr("disabled", "disabled");
+            $(".add-new").attr("disabled", "disabled");
+            $(this).parents("tr").find(".add").removeClass("add").addClass("update"); 
+        });
+    });
+  </script>
+{% endblock %}

@@ -228,14 +228,16 @@
                 <label for="yelpCategory" class="col-xs-5 control-label">Category</label>
                 <div class="col-xs-7">
                   <select id="yelpCategory" name="yelpCategory" class="form-control" title="Select Category" >
-                    {% set index = 0 %} 
-                    {% for key, pair in yelpcategories.items() %}
+                    {% set index = 0 %}
+                    {% for catdetails in yelpcategories %}
+                    {% for key, pair in catdetails.items() %}
                     {{ index == index + 1 }}
                     {% if index == 1 %}
                     <option value="{{key}}" data-textcolor="calcite-text-dark" data-bgcolor="calcite-bg-dark" selected>{{pair}}</option>
                     {% else %}
                     <option value="{{key}}" data-textcolor="calcite-text-dark" data-bgcolor="calcite-bg-dark">{{pair}}</option>
                     {% endif %}
+                    {% endfor %}
                     {% endfor %}
                   </select>
                 </div>
@@ -319,7 +321,6 @@
 
   <script>
     var app;
-    var yelpdata = '{{ yelpdata }}';
 
     require([
       "esri/Map",
@@ -403,11 +404,13 @@
       app.activeView = app.mapView;
 
       // Create the search widget and add it to the navbar instead of view
+      let sourceurl = "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer"
       app.searchWidget = new Search({
         view: app.activeView
       }, "searchWidgetDiv");
 
       app.searchWidget.on("select-result", function(event){
+       
         let latitude = document.getElementById('yelpLocationLat');
         latitude.value = app.searchWidget.selectedResult.feature.geometry.latitude
         //latitude.value = event.result.feature.geometry.centroid.latitude
@@ -662,43 +665,6 @@
 
       let layer = new GraphicsLayer()
 
-      // Search - sync search location and popup
-      function yelpSearch() {
-        if(yelpdata) {
-          //const myJSON = JSON.parse(yelpdata);
-          alert(yelpdata)
-          var decoded = decodeURI(yelpdata);
-          alert(decoded)
-          var businesses = JSON.parse('{{ yelpdata | tojson | safe}}');
-          alert(decoded)
-          businesses.forEach((business) => {
-            //alert(business.coordinates.longitude)
-            var point = new Point({
-              longitude: business.coordinates.longitude,
-              latitude: business.coordinates.latitude
-            });
-            let pointgraphic = new Graphic({  // graphic with point geometry
-              geometry: point, // set geometry here
-              symbol: markerSymbol // set symbol here
-            });
-            // Add graphic to graphics collection
-            layer.graphics.add(pointgraphic);
-          });
-           // Add GraphicsLayer to map
-          map.add(layer);
-        
-          app.mapView.then(() =>{
-            app.mapView.goTo(layer.graphics)
-          });
-
-          
-        } else {
-          alert('out')
-        }
-      }
-
-      //yelpSearch();
-
       let yelplat = document.getElementById('yelpLocationLat');
       let yelplong = document.getElementById('yelpLocationLong');
       let subcategory1 = document.getElementById('yelpSubCategory');
@@ -719,7 +685,7 @@
         }
         map.remove(layer);
         parameters = yelpradius.value + '$' + yelplimit.value + '$' + yelplat.value + '$' + yelplong.value + '$' + selectedsubcats
-        fetch('/yelpsearch2/' + parameters).then(function(response){
+        fetch('/yelpsearch/' + parameters).then(function(response){
           response.json().then(function(data){
             if (data.businesses && data.businesses.length > 0) {
               data.businesses.forEach((business) => {
@@ -783,6 +749,7 @@
     });
   </script>
 
+  <!-- Select sub categories code -->
   <script>
     let category = document.getElementById('yelpCategory');
     let subcategory = document.getElementById('yelpSubCategory');
@@ -800,6 +767,7 @@
     }
   </script>
 
+  <!-- Windows On Load -->
   <script>
     window.onload = function() {
       let category = document.getElementById('yelpCategory');
