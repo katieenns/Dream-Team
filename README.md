@@ -215,16 +215,27 @@ Below are the pending taks for Milestone 2.0
    * Create a database model and design the SQLite database to store YELP categories and website/application transactions/hits information.
    * Create the interfaces for login and sign-up and integrate this with SQLite database.
 
-2. Admin user shall be able to search most freqntly entered categoris and subcategories by user to better understand how users are interacting with the app. 
+2. Admin user shall be able to search most freqntly entered categories and subcategories by user to better understand how users are interacting with the app. 
    * Create the interfaces for admin to retrieve information like which is most search category, which are the most searched subcategories. Display results in tabular format.
 
-### Main Takeaways
+## PART D 
+
+### Milestone 2.0 Presentation
+
+### Milestone 2.0 Working Code
+Refer to ["How to run the application"](https://github.com/katieenns/Dream-Team/blob/main/README.md#steps-to-run-the-application) section of this readme to run and test the application. Working code is udated as of today in this repository.
+
+### Milestone 2.0 Updates
+In this Milestone 2.0 release of the project, we have added an admin database for the admin user to configure the categories and subcategories (User Story 7) and to view the most commonly searched subcategories (User Story 8).
+We have also updated testing and included functional tests in addition to simple unit tests used in Milestone 1.0
+
+### Project Main Takeaways
 
 Our main takeaways from this project are: 
     
     1. Subscribe to Agile Methodologies, utilize online resources (eg. Stack OverFlow), and know there are many ways to execute the same idea!
 
-    2. Understanding how to use GitHub is important (committing/pushing, merging, utilizing branches), and centralizing teamwork in the debugging process       is a huge help.
+    2. Understanding how to use GitHub is important (committing/pushing, merging, utilizing branches), and centralizing teamwork in the debugging process is a huge help.
 
     3. Test driven development is extremely beneficial and is a true best practice (writing tests after writing code is hard!).
 
