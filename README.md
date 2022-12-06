@@ -208,7 +208,7 @@ Refer to ["How to run the application"](https://github.com/katieenns/Dream-Team/
 
 ### Milestone 2.0 
 
-Below are the pending taks for MileStone 2.0
+Below are the pending taks for Milestone 2.0
 
 1. Admin user wants to be able to login into admin dashboard. In this dashbaord admin user can configure the categories and subcategoties information displayed in "YELPSearch" widget.
    * Explore the flask framework to create admin interfaces.
@@ -217,6 +217,16 @@ Below are the pending taks for MileStone 2.0
 
 2. Admin user shall be able to search most freqntly entered categoris and subcategories by user to better understand how users are interacting with the app. 
    * Create the interfaces for admin to retrieve information like which is most search category, which are the most searched subcategories. Display results in tabular format.
+
+### Main Takeaways
+
+Our main takeaways from this project are: 
+    
+    1. Subscribe to Agile Methodologies, utilize online resources (eg. Stack OverFlow), and know there are many ways to execute the same idea!
+
+    2. Understanding how to use GitHub is important (committing/pushing, merging, utilizing branches), and centralizing teamwork in the debugging process       is a huge help.
+
+    3. Test driven development is extremely beneficial and is a true best practice (writing tests after writing code is hard!).
 
 ### Burn Down Chart
 https://github.com/katieenns/Dream-Team/blob/main/Burn%20Chart%2020221101.png
