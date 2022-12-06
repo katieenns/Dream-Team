@@ -48,25 +48,56 @@
  
 7. Database is available under "website" folder with name "database.db". If database is not available or accidentaly deleted, then you can find backup database available under "website/databasebackup" folder.
 
-    `(webappenv)$ python main.py`
-
-    The website can be accessed at `http://127.0.0.1:5000`
-
 ## Steps to test the application
 
 1. Install pytest, pytest-flask, and pytest-coverage if they are not already installed from requirements.txt
 
 2. To run tests, navigate into the correct directory (Dream-Team) and run the command 
             
-            'pytest' 
+    `pytest`
 
 in the terminal. This will return PASS/FAIL results of the pytests in the "tests" folder.
 
-3. To determine test coverage, in the same directory, run the command
 
-        'pytest --cov=website' 
+## Steps to report coverage
+
+1. To determine test coverage, navigate into the correct directory (Dream-Team) and run the command
+
+    `pytest --cov=website` 
         
 in the terminal. This will return a chart detailing each file in the project and the amount of coverage the tests provide for them, as well as the total percentage of coverage for the entire project in the website folder. 
+
+    Here is the current coverage report
+    
+```
+    ========================== test session starts ==========================
+platform win32 -- Python 3.10.8, pytest-7.1.3, pluggy-1.0.0
+rootdir: C:\MS\SoftwareDevelopment\FinalProject\YELP
+plugins: my-plugin-0.1.0, cov-4.0.0, emoji-0.2.0, flask-1.2.0
+collected 31 items
+
+tests\functional\test_routes.py .................                            [ 54%] 
+tests\unit\test_db.py ..                                                     [ 61%] 
+tests\unit\test_models.py ............                                       [100%]
+
+---------- coverage: platform win32, python 3.10.8-final-0 -----------
+Name                              Stmts   Miss  Cover
+-----------------------------------------------------
+website\__init__.py                  32      3    91%
+website\models\__init__.py            0      0   100%
+website\models\categories.py          9      1    89%
+website\models\dbinteraction.py      80     11    86%
+website\models\dbmodels.py           29      0   100%
+website\models\yelp.py               20      0   100%
+website\viewmodels\__init__.py        0      0   100%
+website\viewmodels\admin.py         115     21    82%
+website\viewmodels\yelps.py          39      0   100%
+-----------------------------------------------------
+TOTAL                               324     36    89%
+
+========================= 31 passed, 2 warnings in 4.29s ==========================
+
+```
 
 # YELP's Search API Explorer
 
@@ -243,11 +274,12 @@ We have also updated testing and included functional tests in addition to simple
 
 Our main takeaways from this project are: 
     
-    1. Subscribe to Agile Methodologies, utilize online resources (eg. Stack OverFlow), and know there are many ways to execute the same idea!
+    1. How to integrate GIS mapping / APIs with Python and Flask plugins to create a web-based GIS Application.
 
-    2. Understanding how to use GitHub is important (committing/pushing, merging, utilizing branches), and centralizing teamwork in the debugging process is a huge help.
+    2. Different testing frameworks, including unit testing and pytest. Test driven development is extremely beneficial as it hard to write tests for code after it is written.
 
-    3. Test driven development is extremely beneficial and is a true best practice (writing tests after writing code is hard!).
+    3. Modularizing the codebase to follow best coding practices architecture.
+
 
 ### Burn Down Chart
 https://github.com/katieenns/Dream-Team/blob/main/Final_BurnChart_DreamTeam_Milestone2.png
