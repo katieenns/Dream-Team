@@ -46,6 +46,22 @@
 
     The website can be accessed at `http://127.0.0.1:5000`
 
+## Steps to test the application
+
+1. Install pytest, pytest-flask, and pytest-coverage if they are not already installed from requirements.txt
+
+2. To run tests, navigate into the correct directory (Dream-Team) and run the command 
+            
+            'pytest' 
+
+in the terminal. This will return PASS/FAIL results of the pytests in the "tests" folder.
+
+3. To determine test coverage, in the same directory, run the command
+
+        'pytest --cov=website' 
+        
+in the terminal. This will return a chart detailing each file in the project and the amount of coverage the tests provide for them, as well as the total percentage of coverage for the entire project in the website folder. 
+
 # YELP's Search API Explorer
 
 ## PART A
