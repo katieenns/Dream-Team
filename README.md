@@ -244,3 +244,4 @@ Our main takeaways from this project are:
     3. Test driven development is extremely beneficial and is a true best practice (writing tests after writing code is hard!).
 
 ### Burn Down Chart
+https://github.com/katieenns/Dream-Team/blob/main/Final_BurnChart_DreamTeam_Milestone2.png
