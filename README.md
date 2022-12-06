@@ -218,6 +218,10 @@ Below are the pending taks for Milestone 2.0
 2. Admin user shall be able to search most freqntly entered categories and subcategories by user to better understand how users are interacting with the app. 
    * Create the interfaces for admin to retrieve information like which is most search category, which are the most searched subcategories. Display results in tabular format.
 
+### Burn Down Chart
+https://github.com/katieenns/Dream-Team/blob/main/Burn%20Chart%2020221101.png
+
+
 ## PART D 
 
 ### Milestone 2.0 Presentation
@@ -240,4 +244,3 @@ Our main takeaways from this project are:
     3. Test driven development is extremely beneficial and is a true best practice (writing tests after writing code is hard!).
 
 ### Burn Down Chart
-https://github.com/katieenns/Dream-Team/blob/main/Burn%20Chart%2020221101.png
