@@ -262,6 +262,7 @@ https://github.com/katieenns/Dream-Team/blob/main/Burn%20Chart%2020221101.png
 ## PART D 
 
 ### Milestone 2.0 Presentation
+https://github.com/katieenns/Dream-Team/blob/bb62b32fd58d510f7b7e270d8ef10d64efb457af/DreamTeam_Milestone2_Presentation.pptx
 
 ### Milestone 2.0 Working Code
 Refer to ["How to run the application"](https://github.com/katieenns/Dream-Team/blob/main/README.md#steps-to-run-the-application) section of this readme to run and test the application. Working code is udated as of today in this repository.
