@@ -25,14 +25,14 @@ def login():
     return render_template("adminlogin.html", user=current_user)
 
 
-@admin.route('/logout')
+@admin.route('/logout', methods=["POST","GET"])
 @login_required
 def logout():
     logout_user()
     return redirect(url_for('admin.login'))
 
 
-@admin.route('/subcategories')
+@admin.route('/subcategories', methods=["POST","GET"])
 @login_required
 def adminsubcategories():
     query = ''' 
@@ -46,7 +46,7 @@ def adminsubcategories():
     return render_template("admincategories.html", user=current_user, categories=categories)
 
 
-@admin.route('/admin')
+@admin.route('/admin', methods=["POST","GET"])
 @login_required
 def adminhome():
     query = '''
@@ -60,7 +60,7 @@ def adminhome():
     return render_template("adminhome.html", user=current_user, categories=categories)
 
 
-@admin.route("/add_category",methods=["POST","GET"])
+@admin.route("/add_category", methods=["POST","GET"])
 @login_required
 def add_category():
     if request.method == 'POST':
@@ -99,7 +99,7 @@ def add_category():
     return jsonify(msg)
 
 
-@admin.route("/delete_category",methods=["POST","GET"])
+@admin.route("/delete_category", methods=["POST","GET"])
 @login_required
 def delete_category():
     if request.method == 'POST':
@@ -121,7 +121,7 @@ def delete_category():
     return jsonify(msg)
 
 
-@admin.route("/update_category",methods=["POST","GET"])
+@admin.route("/update_category", methods=["POST","GET"])
 @login_required
 def update_category():
     if request.method == 'POST':
