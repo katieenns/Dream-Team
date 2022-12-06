@@ -45,6 +45,12 @@
     `(webappenv)$ python main.py`
 
     The website can be accessed at `http://127.0.0.1:5000`
+ 
+7. Database is available under "website" folder with name "database.db". If database is not available or accidentaly deleted, then you can find backup database available under "website/databasebackup" folder.
+
+    `(webappenv)$ python main.py`
+
+    The website can be accessed at `http://127.0.0.1:5000`
 
 ## Steps to test the application
 
