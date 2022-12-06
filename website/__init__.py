@@ -2,10 +2,13 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from os import path
 from flask_login import LoginManager
-
+import os
 
 db = SQLAlchemy()
 DB_NAME = "database.db"
+
+# DB_NAME = "Database/database.db"
+# print(os.path.abspath(DB_NAME))
 
 def create_app():
     app = Flask(__name__, template_folder='views')
@@ -13,6 +16,7 @@ def create_app():
     app.config['YELP_ACCESS_KEY'] = 'fIVaHCe-6zTYy-QPCngxNscKSIIqIhUKs-U9t09yppe7sFq6QqPwex9wYstdlPbxnTHeD6mdR7Y2L-RFAtL4WqClktJsWgOi7vZi_9cToCAUA_OQraBNuU5W-UAsX3Yx'
     app.config['YELP_URL'] = 'https://api.yelp.com/v3/businesses/search'
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
+    #app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{os.path.abspath(DB_NAME)}'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     
     db.init_app(app)
